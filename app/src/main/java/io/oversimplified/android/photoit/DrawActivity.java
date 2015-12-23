@@ -29,6 +29,7 @@ public class DrawActivity extends AppCompatActivity {
         view.setBackground(d);
 
         addContentView(view.btnEraseAll, view.params);
+        addContentView(view.btnDone, view.params);
     }
 
     @Override

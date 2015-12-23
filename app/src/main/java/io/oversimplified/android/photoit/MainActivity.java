@@ -39,15 +39,6 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    int TAKE_PHOTO_CODE = 4242;
-    public static int count = 0;
-    String imgPath = "";
-    private static final int REQUEST_EXTERNAL_STORAGE = 1;
-    private static String[] PERMISSIONS_STORAGE = {
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +54,19 @@ public class MainActivity extends AppCompatActivity {
                 ParseUser.logOutInBackground();
                 Snackbar.make(view, "You're logout", Snackbar.LENGTH_LONG)
                         .setAction("Logout", null).show();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(2000);
+                            finish();
+
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
+
 
             }
         });
@@ -72,50 +76,9 @@ public class MainActivity extends AppCompatActivity {
         draww.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+                Intent gameact = new Intent(MainActivity.this, GameActivity.class);
 
-            }
-        });
-
-
-        Button capture = (Button) findViewById(R.id.btnCapture);
-        capture.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-
-                // here,counter will be incremented each time,and the picture taken by camera will be stored as 1.jpg,2.jpg and likewise.
-                count++;
-
-                String state = Environment.getExternalStorageState();
-                if(state.equals("mounted")){
-                    Log.v("mounted", "ok");
-
-                }
-                else{
-                    Log.v("mounted", "not ok");
-
-                }
-                String root = Environment.getExternalStorageDirectory().getAbsolutePath().toString();
-                File myDir = new File(root + "/saved_images");
-                myDir.mkdirs();
-                String fname = "Image-" + count + ".jpg";
-                File file = new File(root, fname);
-                if (file.exists ()) file.delete ();
-                try {
-                    file.createNewFile();
-                } catch (IOException e) {
-                    Log.v("file error", e.toString());
-                }
-
-                Uri outputFileUri = Uri.fromFile(file);
-                imgPath = file.getAbsolutePath();
-
-                Log.v("path",imgPath);
-
-                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
-
-                startActivityForResult(cameraIntent, TAKE_PHOTO_CODE);
-
+                startActivity(gameact);
             }
         });
 
@@ -130,12 +93,12 @@ public class MainActivity extends AppCompatActivity {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                    Log.v("permission","ok");
+                    Log.v("permission", "ok");
                     // permission was granted, yay! Do the
                     // contacts-related task you need to do.
 
                 } else {
-                    Log.v("permission","not ok");
+                    Log.v("permission", "not ok");
 
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
@@ -147,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
             // permissions this app might request
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -157,32 +121,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == TAKE_PHOTO_CODE && resultCode == RESULT_OK) {
-            Log.d("CameraDemo", "Pic saved");
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    Intent drawIntent = new Intent(MainActivity.this, DrawActivity.class);
-                    drawIntent.putExtra("imgPath", imgPath); //Optional parameters
-                    MainActivity.this.startActivity(drawIntent);
-                    //finish();
-                }
-            });
-
-        } else {
-            Toast.makeText(this, "Fail to Take picture", Toast.LENGTH_LONG);
-            Log.d("Code", resultCode + "!=" + RESULT_OK + data);
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    Intent drawIntent = new Intent(MainActivity.this, DrawActivity.class);
-                    drawIntent.putExtra("imgPath", imgPath); //Optional parameters
-                    MainActivity.this.startActivity(drawIntent);
-                    //finish();
-                }
-            });
-        }
     }
 
 
@@ -192,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 != PackageManager.PERMISSION_GRANTED) {
 
             // Should we show an explanation?
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
 
                 // Show an expanation to the user *asynchronously* -- don't block
                 // this thread waiting for the user's response! After the user
@@ -202,11 +140,12 @@ public class MainActivity extends AppCompatActivity {
 
                 // No explanation needed, we can request the permission.
 
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},42);
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 42);
 
             }
         }
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

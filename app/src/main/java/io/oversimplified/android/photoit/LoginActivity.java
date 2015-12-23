@@ -31,6 +31,7 @@ import android.widget.TextView;
 
 import com.parse.Parse;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
@@ -99,6 +100,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 
         Parse.enableLocalDatastore(this.getApplicationContext());
+        ParseObject.registerSubclass(GameItem.class);
         Parse.initialize(this.getApplicationContext());
         ParseUser.enableRevocableSessionInBackground();
 

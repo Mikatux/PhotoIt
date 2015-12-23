@@ -1,6 +1,8 @@
 package io.oversimplified.android.photoit;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -18,11 +20,12 @@ public class BrushView extends View {
     private Path path = new Path();
 
     public Button btnEraseAll;
+    public Button btnDone;
    // public ImageView img;
 
     public RadioGroup.LayoutParams params;
 
-    public BrushView(Context context) {
+    public BrushView(final Context context) {
 
         super(context);
 
@@ -53,6 +56,28 @@ public class BrushView extends View {
                 path.reset();
                 postInvalidate();
 
+            }
+
+        });
+
+
+        btnDone = new Button(context);
+
+        btnDone.setText("Done ");
+
+        params = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.MATCH_PARENT,
+
+                RadioGroup.LayoutParams.WRAP_CONTENT);
+
+        btnDone.setLayoutParams(params);
+        btnDone.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent returnIntent = new Intent();
+                //returnIntent.putExtra("result", result);
+                ((Activity)context).setResult(Activity.RESULT_OK, returnIntent);
+                ((Activity)context).finish();
             }
 
         });
