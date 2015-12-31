@@ -10,10 +10,10 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
 
-    <string name="title_activity_draw">DrawActivity</string>
+    <string name="title_activity_draw">Draw</string>
     <string name="title_activity_game">Your Turn</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="title_activity_guess">GuessActivity</string>
+    <string name="title_activity_guess">Guess</string>
 </resources>

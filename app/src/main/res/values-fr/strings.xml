@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PhotoIt</string>
+    <string name="action_settings">Parametres</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Mot de passe</string>
+    <string name="action_sign_in">Connection ou s\'enregistrer</string>
+    <string name="action_sign_in_short">Connection</string>
+    <string name="error_invalid_email">Cette adresse email est invalide</string>
+    <string name="error_invalid_password">Le mot de passe est trop court</string>
+    <string name="error_incorrect_password">Le mot de passe est incorrect</string>
+    <string name="error_field_required">Ce champs est requis</string>
+
+    <string name="title_activity_draw">Dessine</string>
+    <string name="title_activity_game">Ton tours</string>
+
+    <string name="navigation_drawer_open">Ouvrir le volet de navigation</string>
+    <string name="navigation_drawer_close">Fermet le volet de navigation</string>
+    <string name="title_activity_guess">Devinne</string>
+
+</resources>
