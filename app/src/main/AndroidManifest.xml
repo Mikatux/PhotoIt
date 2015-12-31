@@ -43,6 +43,10 @@
         <activity
             android:name=".GameActivity"
             android:label="@string/title_activity_game"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GuessActivity"
+            android:label="@string/title_activity_guess"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

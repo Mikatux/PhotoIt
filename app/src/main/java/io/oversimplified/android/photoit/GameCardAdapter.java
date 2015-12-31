@@ -1,7 +1,9 @@
 package io.oversimplified.android.photoit;
 
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,10 +35,21 @@ public class GameCardAdapter extends RecyclerView.Adapter<GameCardAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        GameItem nature = mItems.get(i);
-        viewHolder.tvName.setText(nature.getParseUser("player1").getUsername());
-        viewHolder.tvLevel.setText("lvl " + nature.getLevel());
-        viewHolder.imgGame.setImageBitmap(BitmapFactory.decodeFile(nature.getImagePath()));
+        GameItem game = mItems.get(i);
+        viewHolder.tvName.setText(game.getParseUser("player1").getUsername());
+        viewHolder.tvLevel.setText("lvl " + game.getLevel());
+        Bitmap bitmap = null;
+
+        if(game.imgExist()){
+            bitmap = game.getImgBitmap();
+
+        }
+        else {
+            bitmap = null;//BitmapFactory.decodeResource(getResources(), R.drawable.ic_menu_camera);
+
+        }
+        Log.v("load","img");
+        viewHolder.imgGame.setImageBitmap(bitmap);
     }
 
     @Override

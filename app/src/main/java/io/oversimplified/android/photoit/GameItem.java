@@ -1,5 +1,7 @@
 package io.oversimplified.android.photoit;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Environment;
 
 import com.parse.ParseClassName;
@@ -18,7 +20,15 @@ public class GameItem extends ParseObject {
     private ParseUser player2;
     private String word;
     private int mLevel;
+    private Bitmap img;
 
+    public GameItem(){
+
+        if(imgExist())
+            img = BitmapFactory.decodeFile(getImagePath());
+        else
+            img = null;
+    }
     public ParseUser getPlayer1() {
         return player1;
     }
@@ -58,5 +68,8 @@ public class GameItem extends ParseObject {
     public boolean imgExist() {
         File file = new File(this.getImagePath());
         return file.exists();
+    }
+    public Bitmap getImgBitmap(){
+       return img;
     }
 }

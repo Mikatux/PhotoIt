@@ -200,7 +200,7 @@ public class GameActivity extends AppCompatActivity
                 }
 
                 Intent drawIntent = new Intent(GameActivity.this, DrawActivity.class);
-                drawIntent.putExtra("imgId", currentGameId); //Optional parameters
+                drawIntent.putExtra("GameId", currentGameId); //Optional parameters
                 GameActivity.this.startActivityForResult(drawIntent, DRAW_PHOTO_CODE);
 
             } else {
