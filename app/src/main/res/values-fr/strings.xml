@@ -17,5 +17,8 @@
     <string name="navigation_drawer_open">Ouvrir le volet de navigation</string>
     <string name="navigation_drawer_close">Fermet le volet de navigation</string>
     <string name="title_activity_guess">Devinne</string>
+    <string name="happyNewYear">L\'equipe PhotoIt vous souhaitent de bonnes fetes.\nL\'aplication sera de retour le 11 janvier avec tout plein de surprises </string>
+
+
 
 </resources>

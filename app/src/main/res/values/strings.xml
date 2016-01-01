@@ -16,4 +16,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_guess">Guess</string>
+    <string name="title_activity_holiday">HolidayActivity</string>
+    <string name="happyNewYear">The PhotoIt team wish you a happy new year.\nThe app will be back 11 of january with a lot of surprise</string>
+
 </resources>
