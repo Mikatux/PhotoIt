@@ -9,10 +9,16 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="io.oversimplified.android.photoit.GameActivity"
+    tools:context=".PhotoActivity"
     tools:showIn="@layout/app_bar_game">
 
 
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:indeterminate="true"
+        android:id="@+id/pb_loaging"
+        android:foregroundGravity="center"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"

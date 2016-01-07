@@ -2,11 +2,10 @@
 <resources>
     <string name="app_name">PhotoIt</string>
     <string name="action_settings">Parametres</string>
-    <string name="prompt_email">Email</string>
+    <string name="prompt_username">Username</string>
     <string name="prompt_password">Mot de passe</string>
     <string name="action_sign_in">Connection ou s\'enregistrer</string>
     <string name="action_sign_in_short">Connection</string>
-    <string name="error_invalid_email">Cette adresse email est invalide</string>
     <string name="error_invalid_password">Le mot de passe est trop court</string>
     <string name="error_incorrect_password">Le mot de passe est incorrect</string>
     <string name="error_field_required">Ce champs est requis</string>
@@ -17,8 +16,19 @@
     <string name="navigation_drawer_open">Ouvrir le volet de navigation</string>
     <string name="navigation_drawer_close">Fermet le volet de navigation</string>
     <string name="title_activity_guess">Devinne</string>
+    <string name="title_activity_holiday">HolidayActivity</string>
+
     <string name="happyNewYear">L\'equipe PhotoIt vous souhaitent de bonnes fetes.\nL\'aplication sera de retour le 11 janvier avec tout plein de surprises </string>
 
+
+    <string name="my_photos">Mes photos</string>
+    <string name="best_photos">Les meilleurs photos</string>
+    <string name="my_photos_liked">Les photos que j\'aime</string>
+    <string name="photo_not_rated">Les photos pas envore evaluees</string>
+    <string name="my_account">Mon compte</string>
+    <string name="my_account_manage">Parametres du compte</string>
+
+    <string name="logout">Se deconecter</string>
 
 
 </resources>

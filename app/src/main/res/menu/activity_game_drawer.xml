@@ -3,33 +3,37 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_my_photos"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:title="@string/my_photos" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_best_photos"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:title="@string/best_photos" />
+
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/nav_my_liked"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/my_photos_liked" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_not_rated"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/photo_not_rated" />
+
+
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="@string/my_account">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/nav_manage"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="@string/my_account_manage" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/logout" />
+
         </menu>
     </item>
 
